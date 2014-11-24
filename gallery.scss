@@ -1,0 +1,300 @@
+.toggleInput {
+    position: fixed;
+    left: -10000em;
+    top: 50%;
+    display: none;
+}
+
+%removeMultiClick {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.input {
+    @extend .toggleInput;
+}
+
+.gallery, .galleryContainer {
+    width:20em;
+    position: relative;
+    margin-bottom: 2em;
+    overflow: hidden;
+}
+
+.galleryContainer {
+    background-color: transparent;
+    height: 20em;
+    background:grey;
+    margin-bottom: 1.3em;
+}
+
+.colors {
+    &:before {
+        width: 100%;
+        text-align: center;
+        display: block;
+        color: white;
+    }
+    &.for1 {
+        background-color: orange;
+        &:before {
+            content: "1/5";
+        }
+    }
+    &.for2 {
+        background-color: purple;        
+        &:before {
+            content: "2/5";
+        }
+    }
+    &.for3 {
+        background-color: green;        
+        &:before {
+            content: "3/5";
+        }
+    }
+    &.for4 {
+        background-color: #00d6de;        
+        &:before {
+            content: "4/5";
+        }
+    }
+    &.for5 {
+        background-color: red;        
+        &:before {
+            content: "5/5";
+        }
+    }
+}
+
+.bgImg {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    &.for1 {
+        background-image: url('/img/coast_rocksOpt.jpg');
+    }
+    &.for2 {
+        background-image: url('/img/forrestOpt.jpg');
+    }
+    &.for3 {
+        background-image: url('/img/skyOpt.jpg');
+    }
+    &.for4 {
+        background-image: url('/img/lakeOpt.jpg');
+    }
+    &.for5 {      
+        background-image: url('/img/weathered_cliffsOpt.jpg');
+    }
+}
+
+
+.slide {
+    width: 100%;
+    height:100%;
+    background-color: aqua;
+    position: absolute;
+    top:0;
+    left:0;
+    opacity: 1;
+    background-size: cover;
+    transition: opacity 0.4s;
+    @extend .colors;
+    @extend .bgImg;
+    @extend %removeMultiClick;
+    &:before {
+        background-color: inherit;
+        padding: 0.5em 0;
+        transition: background-color 0.4s;
+    }
+}
+
+.label.arrow {
+    position: absolute;
+    height:3em;
+    width:2em;
+    background-color:black;
+    top:50%;
+    margin-top: -1.5em;
+    &:before {
+        content:" ";
+        font-size: 2em;
+        color: white;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+.label {
+    cursor: pointer;
+    @extend %removeMultiClick;
+}
+.thumbnail {
+    position: relative;
+    width: 3.2em;
+    height: 2em;
+    margin-right: 1em;
+    margin-bottom: 2em;
+    float: left;
+    @extend .colors;
+    @extend .bgImg;
+    background-size: cover;
+    &:last-of-type {
+        margin-right: 0;
+    }
+    &:before {
+        background-color: black;
+        position: absolute;
+        bottom: -1.7em;
+        padding: 0.2em 0;
+        transition: background-color 0.4s;
+    }
+}
+
+.input {
+    & ~ .galleryContainer .label.arrow {
+        z-index: 5;
+        display: block;
+        text-align: center;
+        &:before{
+            content: "<";
+        }
+    }
+    & ~ .galleryContainer .slide {
+        z-index: 1;
+        opacity: 0.2;
+    }
+//    & ~ .thumbnail {
+//        border-bottom: 0.2em solid black;
+//    }
+}
+
+.input:checked {
+    &.for1 {
+        & ~ .galleryContainer .slide.for1 {
+            z-index: 5;
+            opacity:1;
+        }
+        & ~ .galleryContainer .arrow.for1 {
+            z-index: 1;
+            & + .arrow {
+                z-index: 10;
+                right:0;
+                &:before {
+                    content: ">";
+                }
+            }
+        }
+        & ~ .galleryContainer .arrow.for5 {
+                z-index: 10;
+        }
+        & ~ .thumbnail.for1 {
+            &:before {
+                background-color: inherit;
+            }
+        }
+    }
+    &.for2 {
+        & ~ .galleryContainer .slide.for2 {
+            z-index: 5;
+            opacity:1;
+        }
+        & ~ .galleryContainer .arrow.for2 {
+            z-index: 1;
+            & + .arrow {
+                z-index: 10;
+                right:0;
+                &:before {
+                    content: ">";
+                }
+            }
+        }
+        & ~ .galleryContainer .arrow.for1 {
+                z-index: 10;
+        }
+        & ~ .thumbnail.for2 {
+            &:before {
+                background-color: inherit;
+            }
+        }
+
+    }
+    &.for3 {
+        & ~ .galleryContainer .slide.for3 {
+            z-index: 5;
+            opacity:1;
+        }
+        & ~ .galleryContainer .arrow.for3 {
+            z-index: 1;
+            & + .arrow {
+                z-index: 10;
+                right:0;
+                &:before {
+                    content: ">";
+                }
+            }
+        }
+        & ~ .galleryContainer .arrow.for2 {
+                z-index: 10;
+        }
+        & ~ .thumbnail.for3 {
+            &:before {
+                background-color: inherit;
+            }
+        }
+
+    }
+    &.for4 {
+        & ~ .galleryContainer .slide.for4 {
+            z-index: 5;
+            opacity:1;
+        }
+        & ~ .galleryContainer .arrow.for4 {
+            z-index: 1;
+            & + .arrow {
+                z-index: 10;
+                right:0;
+                &:before {
+                    content: ">";
+                }
+            }
+        }
+        & ~ .galleryContainer .arrow.for3 {
+                z-index: 10;
+        }
+        & ~ .thumbnail.for4 {
+            &:before {
+                background-color: inherit;
+            }
+        }
+
+    }
+    &.for5 {
+        & ~ .galleryContainer .slide.for5 {
+            z-index: 5;
+            opacity:1;
+        }
+        & ~ .galleryContainer .arrow.for5 {
+            z-index: 1;
+        }
+        & ~ .galleryContainer .arrow.for4 {
+                z-index: 10;
+        }
+        & ~ .galleryContainer .arrow.for1 {
+            z-index: 10;
+            right:0;
+            &:before {
+                content: ">";
+            }
+        }
+        & ~ .thumbnail.for5 {
+            &:before {
+                background-color: inherit;
+            }
+        }
+
+    }
+}

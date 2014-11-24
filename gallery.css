@@ -1,0 +1,257 @@
+.toggleInput, .input {
+  position: fixed;
+  left: -10000em;
+  top: 50%;
+  display: none;
+}
+
+.slide, .label {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.gallery, .galleryContainer {
+  width: 20em;
+  position: relative;
+  margin-bottom: 2em;
+  overflow: hidden;
+}
+
+.galleryContainer {
+  background-color: transparent;
+  height: 20em;
+  background: grey;
+  margin-bottom: 1.3em;
+}
+
+.colors:before, .slide:before, .thumbnail:before {
+  width: 100%;
+  text-align: center;
+  display: block;
+  color: white;
+}
+.colors.for1, .for1.slide, .for1.thumbnail {
+  background-color: orange;
+}
+.colors.for1:before, .for1.slide:before, .for1.thumbnail:before {
+  content: "1/5";
+}
+.colors.for2, .for2.slide, .for2.thumbnail {
+  background-color: purple;
+}
+.colors.for2:before, .for2.slide:before, .for2.thumbnail:before {
+  content: "2/5";
+}
+.colors.for3, .for3.slide, .for3.thumbnail {
+  background-color: green;
+}
+.colors.for3:before, .for3.slide:before, .for3.thumbnail:before {
+  content: "3/5";
+}
+.colors.for4, .for4.slide, .for4.thumbnail {
+  background-color: #00d6de;
+}
+.colors.for4:before, .for4.slide:before, .for4.thumbnail:before {
+  content: "4/5";
+}
+.colors.for5, .for5.slide, .for5.thumbnail {
+  background-color: red;
+}
+.colors.for5:before, .for5.slide:before, .for5.thumbnail:before {
+  content: "5/5";
+}
+
+.bgImg, .slide, .thumbnail {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.bgImg.for1, .for1.slide, .for1.thumbnail {
+  background-image: url("/img/coast_rocksOpt.jpg");
+}
+.bgImg.for2, .for2.slide, .for2.thumbnail {
+  background-image: url("/img/forrestOpt.jpg");
+}
+.bgImg.for3, .for3.slide, .for3.thumbnail {
+  background-image: url("/img/skyOpt.jpg");
+}
+.bgImg.for4, .for4.slide, .for4.thumbnail {
+  background-image: url("/img/lakeOpt.jpg");
+}
+.bgImg.for5, .for5.slide, .for5.thumbnail {
+  background-image: url("/img/weathered_cliffsOpt.jpg");
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  background-color: aqua;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  background-size: cover;
+  transition: opacity 0.4s;
+}
+.slide:before {
+  background-color: inherit;
+  padding: 0.5em 0;
+  transition: background-color 0.4s;
+}
+
+.label.arrow {
+  position: absolute;
+  height: 3em;
+  width: 2em;
+  background-color: black;
+  top: 50%;
+  margin-top: -1.5em;
+}
+.label.arrow:before {
+  content: " ";
+  font-size: 2em;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.label {
+  cursor: pointer;
+}
+
+.thumbnail {
+  position: relative;
+  width: 3.2em;
+  height: 2em;
+  margin-right: 1em;
+  margin-bottom: 2em;
+  float: left;
+  background-size: cover;
+}
+.thumbnail:last-of-type {
+  margin-right: 0;
+}
+.thumbnail:before {
+  background-color: black;
+  position: absolute;
+  bottom: -1.7em;
+  padding: 0.2em 0;
+  transition: background-color 0.4s;
+}
+
+.input ~ .galleryContainer .label.arrow {
+  z-index: 5;
+  display: block;
+  text-align: center;
+}
+.input ~ .galleryContainer .label.arrow:before {
+  content: "<";
+}
+.input ~ .galleryContainer .slide {
+  z-index: 1;
+  opacity: 0.2;
+}
+
+.input:checked.for1 ~ .galleryContainer .slide.for1 {
+  z-index: 5;
+  opacity: 1;
+}
+.input:checked.for1 ~ .galleryContainer .arrow.for1 {
+  z-index: 1;
+}
+.input:checked.for1 ~ .galleryContainer .arrow.for1 + .arrow {
+  z-index: 10;
+  right: 0;
+}
+.input:checked.for1 ~ .galleryContainer .arrow.for1 + .arrow:before {
+  content: ">";
+}
+.input:checked.for1 ~ .galleryContainer .arrow.for5 {
+  z-index: 10;
+}
+.input:checked.for1 ~ .thumbnail.for1:before {
+  background-color: inherit;
+}
+.input:checked.for2 ~ .galleryContainer .slide.for2 {
+  z-index: 5;
+  opacity: 1;
+}
+.input:checked.for2 ~ .galleryContainer .arrow.for2 {
+  z-index: 1;
+}
+.input:checked.for2 ~ .galleryContainer .arrow.for2 + .arrow {
+  z-index: 10;
+  right: 0;
+}
+.input:checked.for2 ~ .galleryContainer .arrow.for2 + .arrow:before {
+  content: ">";
+}
+.input:checked.for2 ~ .galleryContainer .arrow.for1 {
+  z-index: 10;
+}
+.input:checked.for2 ~ .thumbnail.for2:before {
+  background-color: inherit;
+}
+.input:checked.for3 ~ .galleryContainer .slide.for3 {
+  z-index: 5;
+  opacity: 1;
+}
+.input:checked.for3 ~ .galleryContainer .arrow.for3 {
+  z-index: 1;
+}
+.input:checked.for3 ~ .galleryContainer .arrow.for3 + .arrow {
+  z-index: 10;
+  right: 0;
+}
+.input:checked.for3 ~ .galleryContainer .arrow.for3 + .arrow:before {
+  content: ">";
+}
+.input:checked.for3 ~ .galleryContainer .arrow.for2 {
+  z-index: 10;
+}
+.input:checked.for3 ~ .thumbnail.for3:before {
+  background-color: inherit;
+}
+.input:checked.for4 ~ .galleryContainer .slide.for4 {
+  z-index: 5;
+  opacity: 1;
+}
+.input:checked.for4 ~ .galleryContainer .arrow.for4 {
+  z-index: 1;
+}
+.input:checked.for4 ~ .galleryContainer .arrow.for4 + .arrow {
+  z-index: 10;
+  right: 0;
+}
+.input:checked.for4 ~ .galleryContainer .arrow.for4 + .arrow:before {
+  content: ">";
+}
+.input:checked.for4 ~ .galleryContainer .arrow.for3 {
+  z-index: 10;
+}
+.input:checked.for4 ~ .thumbnail.for4:before {
+  background-color: inherit;
+}
+.input:checked.for5 ~ .galleryContainer .slide.for5 {
+  z-index: 5;
+  opacity: 1;
+}
+.input:checked.for5 ~ .galleryContainer .arrow.for5 {
+  z-index: 1;
+}
+.input:checked.for5 ~ .galleryContainer .arrow.for4 {
+  z-index: 10;
+}
+.input:checked.for5 ~ .galleryContainer .arrow.for1 {
+  z-index: 10;
+  right: 0;
+}
+.input:checked.for5 ~ .galleryContainer .arrow.for1:before {
+  content: ">";
+}
+.input:checked.for5 ~ .thumbnail.for5:before {
+  background-color: inherit;
+}
