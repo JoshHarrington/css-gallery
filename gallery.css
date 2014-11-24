@@ -70,19 +70,19 @@
   background-repeat: no-repeat;
 }
 .bgImg.for1, .for1.slide, .for1.thumbnail {
-  background-image: url("/img/coast_rocksOpt.jpg");
+  background-image: url("http://joshharrington.co.uk/img/coast_rocksOpt.jpg");
 }
 .bgImg.for2, .for2.slide, .for2.thumbnail {
-  background-image: url("/img/forrestOpt.jpg");
+  background-image: url("http://joshharrington.co.uk/img/forrestOpt.jpg");
 }
 .bgImg.for3, .for3.slide, .for3.thumbnail {
-  background-image: url("/img/skyOpt.jpg");
+  background-image: url("http://joshharrington.co.uk/img/skyOpt.jpg");
 }
 .bgImg.for4, .for4.slide, .for4.thumbnail {
-  background-image: url("/img/lakeOpt.jpg");
+  background-image: url("http://joshharrington.co.uk/img/lakeOpt.jpg");
 }
 .bgImg.for5, .for5.slide, .for5.thumbnail {
-  background-image: url("/img/weathered_cliffsOpt.jpg");
+  background-image: url("http://joshharrington.co.uk/img/weathered_cliffsOpt.jpg");
 }
 
 .slide {
